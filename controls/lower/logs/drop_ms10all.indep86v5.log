@@ -1,0 +1,12 @@
+segments 10303, support [0.048887450420749975, 5.351987358023376], s = 0.535256207, nodes with slope jump 10369
+I(g) = s^2 I(nu) = [-7.87377597066737727112622212874985549944321298923098040e-7 +/- 9.44e-61]  -> I(nu) = [-2.74827146503679577153991445708274339471477822373995940e-6 +/- 4.39e-60]  (146s)
+left tail (0, 0.01]: True  margin [0.48676987648423972547749291489758663757967266929819589786477 +/- 2.68e-60]
+right tail [30.0, inf): True  g(x_hi) = [18.08157383022141278530843071304670869993324105138873599285692 +/- 3.78e-60]
+Traceback (most recent call last):
+  File "indep86v5_f3f503c9.py", line 450, in <module>
+    sys.exit(0 if main() else 1)
+                  ~~~~^^
+  File "indep86v5_f3f503c9.py", line 423, in main
+    assert ok, f"window failed for root in [{float(a)},{float(b)}] of {q}"
+           ^^
+AssertionError: window failed for root in [0.12061475842818323,0.12061475842818323] of [1, -6, 9, -1]

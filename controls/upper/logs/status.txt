@@ -1,0 +1,14 @@
+ub2_eps_1e-6 first rc=1 276 s | VERDICT: C_86 <= 1.8070700962 NOT VERIFIED
+ub2_eps_1e-6 second rc=1 286 s | NOT VERIFIED (286 s)
+ub2_eps_1e-14 first rc=1 7 s | VERDICT: C_86 <= 1.8070689033 NOT VERIFIED
+ub2_eps_1e-14 second rc=1 5 s | NOT VERIFIED (5 s)
+ub2_b_x1.001 first rc=1 76 s | VERDICT: C_86 <= 1.8070808326 NOT VERIFIED
+ub2_b_x1.001 second rc=1 50 s | NOT VERIFIED (49 s)
+ub2_drop_poly2 first rc=1 55 s | VERDICT: C_86 <= 1.8070808326 NOT VERIFIED
+ub2_drop_poly2 second rc=1 3 s | NOT VERIFIED (3 s)
+ub2_drop_poly22 first rc=1 47 s | VERDICT: C_86 <= 1.8070808326 NOT VERIFIED
+ub2_drop_poly22 second rc=1 7 s | NOT VERIFIED (7 s)
+ALLDONE
+ub2_eps_1e-7 first rc=1 8 s | VERDICT: C_86 <= 1.8070690226 NOT VERIFIED
+ub2_eps_1e-7 second rc=1 11 s | NOT VERIFIED (11 s)
+ALLDONE2

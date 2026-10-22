@@ -1,0 +1,12 @@
+segments 2681, support [0.01, 5.8], s = 0.534628511, nodes with slope jump 2682
+I(g) = s^2 I(nu) = [6.8474840236197587250033278856305169292954974602151034288265e-5 +/- 7.45e-64]  -> I(nu) = [0.00023956689070165108834581870268685115713051083346894723495002 +/- 3.78e-63]  (7s)
+left tail (0, 0.01]: True  margin [0.489572207377083830764036183757814255309610657317479182242793438 +/- 7.61e-64]
+right tail [30.0, inf): True  g(x_hi) = [19.825760015705502560529507519214596155640512931331557477486209469 +/- 9.02e-64]
+Traceback (most recent call last):
+  File "indep86v4_7aa227fd.py", line 430, in <module>
+    sys.exit(0 if main() else 1)
+                  ~~~~^^
+  File "indep86v4_7aa227fd.py", line 403, in main
+    assert ok, f"window failed for root in [{float(a)},{float(b)}] of {q}"
+           ^^
+AssertionError: window failed for root in [0.6617387872812835,0.6617387872832835] of [1, -7, 14, -8, 1]

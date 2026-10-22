@@ -1,0 +1,44 @@
+Commands that produced the logs. The working directory held the certificate and the program; PY is python3 with
+python-flint 0.9.0 and numpy; the last argument is the number of worker processes. The logs come from frozen copies of
+the programs (see README.md): check86v4_23983407.py (version 2 logs) and check86v3_5ca8ed61.py (version 1 logs of
+check86), indep86v5_f3f503c9.py (version 2 logs) and indep86v4_7aa227fd.py (version 1 logs of indep86), check86ub_a69381c1.py, ub86audit_3ae244be.py.
+
+Lower bound, certificate cert_L4_1802222_915a52c7.json (Theorem 1.1):
+  lower/check86_cert_L4.log          PY -I -B check86v4_23983407.py cert_L4_1802222_915a52c7.json 96    (Python 3.13.5)
+  lower/indep86_cert_L4.log          PY -I -B indep86v5_f3f503c9.py cert_L4_1802222_915a52c7.json 192   (Python 3.13.5)
+  lower/indep86_cert_L4_rerun.log    the same on a second machine
+Lower bound, variant variant_cert_L4_1802221_4645ac71.json:
+  lower/check86_variant_L4.log       PY -I -B check86v4_23983407.py variant_cert_L4_1802221_4645ac71.json NPROC
+  lower/indep86_variant_L4.log       PY -I -B indep86v5_f3f503c9.py variant_cert_L4_1802221_4645ac71.json NPROC
+Lower bound, earlier certificates, rerun with the version 2 programs (the same commands, NPROC processes):
+  lower/check86_cert_L3.log, lower/indep86_cert_L3.log          cert_L3_1802217_4040e266.json
+  lower/check86_cert_A15_v4.log, lower/indep86_cert_A15_v5.log  cert_A15_1802203_d1747e6a.json
+  lower/indep86_cert_A12_v5.log                                  cert_A12_1802189_f1a60531.json
+  (lower/versions_L4.txt gives the versions of these runs.)
+
+Lower bound, certificate cert_A15_1802203_d1747e6a.json (version 1):
+  lower/check86_cert_A15.log         PY -I check86v3_5ca8ed61.py cert_A15_1802203_d1747e6a.json 24
+  lower/check86_cert_A15_rerun.log   PY -I check86v3_5ca8ed61.py cert_A15_1802203_d1747e6a.json NPROC   (Python 3.13.5)
+  lower/indep86_cert_A15.log         PY -I indep86v4_7aa227fd.py cert_A15_1802203_d1747e6a.json NPROC   (Python 3.13.5)
+  lower/indep86_cert_A15_rerun.log   the same on a second machine
+Lower bound, earlier certificate cert_A12_1802189_f1a60531.json:
+  lower/check86_cert_A12.log         PY -I check86v3_5ca8ed61.py cert_A12_1802189_f1a60531.json NPROC   (Python 3.13.5)
+  lower/indep86_cert_A12.log         PY -I indep86v4_7aa227fd.py cert_A12_1802189_f1a60531.json NPROC   (Python 3.13.5)
+  (NPROC = the number of cores of the machine; lower/versions.txt gives the versions of those runs.)
+
+Upper bound, certificate cert_ub_A22v2_1807081_d773f831.json (Theorem 1.1):
+  upper/check86ub_cert_A22v2.log         PY -I check86ub_a69381c1.py cert_ub_A22v2_1807081_d773f831.json 2    (Python 3.12.13)
+  upper/check86ub_cert_A22v2_40proc.log  PY -I check86ub_a69381c1.py cert_ub_A22v2_1807081_d773f831.json 40
+  upper/ub86audit_cert_A22v2.log         PY -I ub86audit_3ae244be.py cert_ub_A22v2_1807081_d773f831.json 1
+
+Upper bound, earlier certificate cert_ub_A22_1807129_83e03d16.json:
+  upper/check86ub_cert_A22.log           PY -I check86ub_a69381c1.py cert_ub_A22_1807129_83e03d16.json 40
+  upper/ub86audit_cert_A22.log           PY -I ub86audit_3ae244be.py cert_ub_A22_1807129_83e03d16.json 1
+
+Controls:
+  controls/lower/logs/       run_controls.sh check86v4_23983407.py NPROC (both lower-bound programs on each modified copy of
+                             the L4 certificate; status_union.txt summarizes the runs, including those on the certificate,
+                             the variant and the earlier certificates)
+  controls/lower_A15/logs/   both lower-bound programs on each modified copy of the version 1 certificate (Python 3.13.5)
+  controls/upper/logs/       both upper-bound programs on each modified certificate, 1 process (Python 3.12.13)
+  controls/upper/switches_*/ negs.sh in each directory

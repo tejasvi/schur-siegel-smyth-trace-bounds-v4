@@ -1,0 +1,12 @@
+#!/bin/bash
+# negative controls of the second upper-bound checker (environment switches of ub86audit.py; see its docstring)
+PY="python3 -I -B"
+C=cert_ub_A22v2_1807081_d773f831.json
+run() { name=$1; shift; env OMP_NUM_THREADS=1 "$@" $PY ub86audit.py $C 1 > neg_$name.log 2>&1; echo "$name rc=$? $(tail -1 neg_$name.log)" >> negs.txt; }
+rm -f negs.txt
+run shift5e6 UB_SHIFT=5/1000000
+run eps1e14 UB_EPS=1/100000000000000
+run scaleb1001 UB_SCALEB=1001/1000
+run drop_x1 UB_DROP=1
+run drop_last UB_DROP=20
+echo ALLDONE >> negs.txt

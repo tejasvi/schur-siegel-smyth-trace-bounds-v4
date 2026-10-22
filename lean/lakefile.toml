@@ -1,0 +1,91 @@
+name = "Lean86a"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["Trace86"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+autoImplicit = false
+weak.linter.style.header = false
+
+# Toolchain leanprover/lean4:v4.35.0-rc3; Mathlib at tag v4.35.0-rc3 (commit c55e6e786f49, see lake-manifest.json).
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.35.0-rc3"
+
+# Shared files (provenance in PROVENANCE.md).
+# Core-only computational parts (no Mathlib), precompiled for native_decide; kernel shards import only these.
+[[lean_lib]]
+name = "AuxCore"
+precompileModules = true
+
+# 86a checker (core Lean only, adapted from the companion Mahler-measure checker), precompiled.
+[[lean_lib]]
+name = "T86Core"
+precompileModules = true
+
+# 86a upper-bound checker (core Lean only, fork of T86Core), precompiled.
+[[lean_lib]]
+name = "T86UCore"
+precompileModules = true
+
+# Mathlib side: shared definitions (copies) and the 86a statements and soundness.
+[[lean_lib]]
+name = "AuxCommon"
+globs = ["AuxCommon.+"]
+
+[[lean_lib]]
+name = "Trace86"
+globs = ["Trace86.+"]
+
+[[lean_lib]]
+name = "Trace86U"
+globs = ["Trace86U.+"]
+
+[[lean_exe]]
+name = "t86run"
+root = "Bench.T86Run"
+
+[[lean_exe]]
+name = "t86k"
+root = "Bench.T86K"
+
+[[lean_exe]]
+name = "t86urun"
+root = "Bench.T86URun"
+
+[[lean_exe]]
+name = "t86uk"
+root = "Bench.T86UK"
+
+# 86a lower-bound computational shards, native track (native_decide).
+[[lean_lib]]
+name = "T86N"
+globs = ["T86N.+"]
+
+# 86a lower-bound computational shards, kernel track (decide +kernel; core-only imports): literal context, data, tails,
+# energy chunks.
+[[lean_lib]]
+name = "T86K"
+globs = ["T86K.+"]
+
+# 86a lower-bound kernel track, the tiling in end-point form: end-point data (one point per module) and leaf chunks.
+[[lean_lib]]
+name = "T86KE"
+globs = ["T86KE.+"]
+
+[[lean_lib]]
+name = "T86KL"
+globs = ["T86KL.+"]
+
+# 86a upper-bound computational shards, native track (native_decide).
+[[lean_lib]]
+name = "T86UN"
+globs = ["T86UN.+"]
+
+# 86a upper-bound computational shards, kernel track (decide +kernel; core-only imports).
+[[lean_lib]]
+name = "T86UK"
+globs = ["T86UK.+"]
